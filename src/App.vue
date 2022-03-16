@@ -13,18 +13,21 @@
       <div class="page-main__content">
         <u-scroll scroll-x scroll-y>
           <router-view />
-        </u-scroll></div
-    ></el-main>
+        </u-scroll>
+      </div>
+    </el-main>
   </el-container>
+  <u-tools />
 </template>
 
 <script lang="ts">
   import { Menus } from '@router/router'
   import { defineComponent } from 'vue'
   import UScroll from './components/u-scroll.vue'
+  import UTools from './components/u-tools.vue'
 
   export default defineComponent({
-    components: { UScroll },
+    components: { UScroll, UTools },
     setup() {
       return {
         menus: Menus,

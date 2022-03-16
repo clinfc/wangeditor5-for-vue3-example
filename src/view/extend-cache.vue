@@ -1,5 +1,3 @@
-<style lang="scss"></style>
-
 <template>
   <div class="default-content">
     <el-form :inline="true">

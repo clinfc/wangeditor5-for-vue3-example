@@ -16,3 +16,11 @@ declare module 'article.json' {
   const articles: Article[]
   export default articles
 }
+
+interface ImportMetaEnv {
+  readonly VITE_BASE: string
+}
+
+declare interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

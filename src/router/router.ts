@@ -9,6 +9,7 @@ const routes: RouteRecordRaw[] = [
     component: Index,
     meta: {
       title: '基础案例',
+      component: '/src/view/begin.vue',
     },
   },
   {
@@ -17,6 +18,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/default-content.vue'),
     meta: {
       title: 'defaultContent',
+      component: '/src/view/default-content.vue',
     },
   },
   {
@@ -25,6 +27,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/default-html.vue'),
     meta: {
       title: 'defaultHtml',
+      component: '/src/view/default-html.vue',
     },
   },
   {
@@ -33,6 +36,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/extend-cache.vue'),
     meta: {
       title: '使用缓存模式',
+      component: '/src/view/extend-cache.vue',
     },
   },
   {
@@ -41,6 +45,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/extend-cache.vue'),
     meta: {
       title: '禁用缓存模式',
+      component: '/src/view/extend-cache.vue',
     },
   },
   {
@@ -49,6 +54,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/async.vue'),
     meta: {
       title: '在弹窗/抽屉中使用',
+      component: '/src/view/async.vue',
     },
   },
   {
@@ -57,6 +63,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/reloadbofore.vue'),
     meta: {
       title: 'reloadbofore',
+      component: '/src/view/reloadbofore.vue',
     },
   },
   {
@@ -65,6 +72,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/model-json-array.vue'),
     meta: {
       title: 'v-model',
+      component: '/src/view/model-json-array.vue',
     },
   },
   {
@@ -73,6 +81,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/model-json-string.vue'),
     meta: {
       title: 'v-model:json',
+      component: '/src/view/model-json-string.vue',
     },
   },
   {
@@ -81,6 +90,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/form.vue'),
     meta: {
       title: '表单验证',
+      component: '/src/view/form.vue',
     },
   },
   {
@@ -89,6 +99,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/sync-content.vue'),
     meta: {
       title: '强制同步表单数据',
+      component: '/src/view/sync-content.vue',
     },
   },
   {
@@ -97,20 +108,30 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@view/shadow.vue'),
     meta: {
       title: '增强模式',
+      component: '/src/view/shadow.vue',
     },
   },
 ]
 
-const router = createRouter({
-  routes: routes,
-  history: createWebHistory(),
-})
+const BASE = (import.meta.env.BASE_URL || '').replace(/\/$/, '')
+
+export const ComponentFiles: Map<string, string> = new Map()
 
 export const Menus = routes.map((item) => {
+  item.path = `${BASE}${item.path}`
+
+  ComponentFiles.set(item.path, item.meta!.component as string)
+  ComponentFiles.set(item.path.replace(/\/$/, ''), item.meta!.component as string)
+
   return {
     path: item.path,
     title: item.meta!.title,
   } as Record<'path' | 'title', string>
+})
+
+const router = createRouter({
+  routes: routes,
+  history: createWebHistory(),
 })
 
 export default router
