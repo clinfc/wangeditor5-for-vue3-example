@@ -1,6 +1,12 @@
-# element-plus + wangeditor5-for-vue3
+# wangeditor5-for-vue3-example
 
-`wangeditor5-for-vue3` 的 `element-plus` 使用示例
+在 `element-plus` 中使用 `wangeditor5-for-vue3` 组件
+
+## 用户文档
+
+- [wangeditor5](https://www.wangeditor.com/v5/)
+- [wangeditor5-for-vue2](https://clinfc.github.io/wangeditor5-for-vue2/)
+- [wangeditor5-for-vue3](https://clinfc.github.io/wangeditor5-for-vue3/)
 
 ## 运行
 
