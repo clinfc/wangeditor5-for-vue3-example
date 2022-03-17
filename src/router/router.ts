@@ -1,6 +1,7 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import Index from '@view/begin.vue'
+import { BASE_URL } from '../../env'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -113,11 +114,15 @@ const routes: RouteRecordRaw[] = [
   },
 ]
 
+const BASE = BASE_URL.replace(/\/$/, '')
+
 export const ComponentFiles: Map<string, string> = new Map()
 
 export const Menus = routes.map((item) => {
+  item.path = `${BASE}${item.path}`
+
   ComponentFiles.set(item.path, item.meta!.component as string)
-  ComponentFiles.set(`${item.path}/`, item.meta!.component as string)
+  ComponentFiles.set(item.path.replace(/\/$/, ''), item.meta!.component as string)
 
   return {
     path: item.path,
@@ -127,7 +132,7 @@ export const Menus = routes.map((item) => {
 
 const router = createRouter({
   routes: routes,
-  history: createWebHashHistory(),
+  history: createWebHistory(),
 })
 
 export default router
