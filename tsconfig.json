@@ -16,8 +16,8 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@router/*": ["src/router/*"],
-      "@view/*":["src/vuew/*"]
+      "@view/*": ["src/vuew/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["env.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

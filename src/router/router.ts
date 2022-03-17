@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import Index from '@view/begin.vue'
+import { BASE_URL } from '../../env'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -113,7 +114,7 @@ const routes: RouteRecordRaw[] = [
   },
 ]
 
-const BASE = (import.meta.env.BASE_URL || '').replace(/\/$/, '')
+const BASE = BASE_URL.replace(/\/$/, '')
 
 export const ComponentFiles: Map<string, string> = new Map()
 
