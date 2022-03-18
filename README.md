@@ -2,6 +2,12 @@
 
 `wangeditor5-for-vue3` 的 `element-plus` 使用示例
 
+## 用户文档
+
+- [wangeditor5](https://www.wangeditor.com/v5/)
+- [wangeditor5-for-vue2](https://clinfc.github.io/wangeditor5-for-vue2/)
+- [wangeditor5-for-vue3](https://clinfc.github.io/wangeditor5-for-vue3/)
+
 ## 运行
 
 ### yarn
