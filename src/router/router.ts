@@ -130,4 +130,10 @@ const router = createRouter({
   history: createWebHashHistory(),
 })
 
+router.afterEach((to, from, failure) => {
+  if (failure) return
+
+  document.title = to.meta!.title as string
+})
+
 export default router

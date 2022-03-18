@@ -11,6 +11,7 @@
     </el-aside>
     <el-main class="page-main">
       <div class="page-main__content">
+        <h2>{{ title }}</h2>
         <u-scroll scroll-x scroll-y>
           <router-view />
         </u-scroll>
@@ -22,16 +23,19 @@
 
 <script lang="ts">
   import { Menus } from '@router/router'
-  import { defineComponent } from 'vue'
+  import { computed, defineComponent } from 'vue'
+  import { useRoute } from 'vue-router'
   import UScroll from './components/u-scroll.vue'
   import UTools from './components/u-tools.vue'
 
   export default defineComponent({
     components: { UScroll, UTools },
     setup() {
-      return {
-        menus: Menus,
-      }
+      const route = useRoute()
+
+      const title = computed(() => Menus.find(({ path }) => path == route.path)?.title || '')
+
+      return { title, menus: Menus }
     },
   })
 </script>
@@ -62,6 +66,13 @@
         height: 100%;
         margin: auto;
         overflow: hidden;
+        h2 {
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 10px;
+          margin-top: 0;
+          margin-bottom: 30px;
+          color: #999;
+        }
       }
     }
   }
