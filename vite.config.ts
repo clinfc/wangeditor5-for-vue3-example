@@ -9,7 +9,6 @@ export default defineConfig({
   base: BASE_URL,
   server: {
     host: '0.0.0.0',
-    open: true,
   },
   plugins: [vue(), ElementPlus()],
   resolve: {

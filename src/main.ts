@@ -4,7 +4,14 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 import { createApp } from 'vue'
-import { weEditorPlusCssRule, WeEditable, WeEditor, WeEditorPlus, WeToolbar } from 'wangeditor5-for-vue3'
+import {
+  weEditorPlusCssRule,
+  WeEditable,
+  WeEditor,
+  WeEditorPlus,
+  WeToolbar,
+  registToggleMode,
+} from 'wangeditor5-for-vue3'
 
 // 用于支持表单验证
 import weFormFields from './plugins/form-fields'
@@ -12,6 +19,8 @@ import weFormFields from './plugins/form-fields'
 // 用于 shadow 模式
 import westyle from '@wangeditor/editor/dist/css/style.css'
 weEditorPlusCssRule(westyle)
+
+registToggleMode()
 
 const app = createApp(App)
 
